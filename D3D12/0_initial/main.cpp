@@ -540,7 +540,7 @@ LRESULT CALLBACK windowProc(HWND h_wnd, UINT msg, WPARAM w_param, LPARAM l_param
 	return 0;
 }
 
-int CALLBACK wWinMain(HINSTANCE h_instance, HINSTANCE, PWSTR, int n_cmd_show) {
+int WINAPI wWinMain(HINSTANCE h_instance, HINSTANCE, PWSTR, int n_cmd_show) {
 	SetThreadDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
 
 	wchar_t const* wc_name = L"D3D12wc";
