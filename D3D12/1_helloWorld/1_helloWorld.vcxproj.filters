@@ -8,5 +8,6 @@
     <ClInclude Include="window.hpp" />
     <ClInclude Include="config.hpp" />
     <ClInclude Include="d3d12.hpp" />
+    <ClInclude Include="timer.hpp" />
   </ItemGroup>
 </Project>

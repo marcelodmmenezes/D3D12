@@ -1,4 +1,5 @@
 #include "window.hpp"
+#include "timer.hpp"
 #include "d3d12.hpp"
 
 LRESULT CALLBACK windowCallback(
@@ -10,23 +11,23 @@ LRESULT CALLBACK windowCallback(
 	switch (msg) {
 	case WM_PAINT:
 		// TODO
-		break;
+		return 0;
 
 	case WM_SYSKEYDOWN:
 	case WM_KEYDOWN:
 		// TODO
-		break;
+		return 0;
 
 	case WM_SYSCHAR:
-		break;
+		return 0;
 
 	case WM_SIZE:
 		// TODO
-		break;
+		return 0;
 
 	case WM_DESTROY:
 		PostQuitMessage(0);
-		break;
+		return 0;
 
 	default:
 		return DefWindowProc(handle, msg, w_param, l_param);
@@ -57,11 +58,14 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE, PWSTR, int)
 #endif
 
 	Window window(instance, L"WINDOW_CLASS_NAME", L"D3D12");
+	RelativeTimer timer;
 	D3D12 d3d12(&window);
+	MSG msg = {};
 
 	window.show();
+	timer.reset();
 
-	MSG msg = {};
+	std::wstring output;
 
 	while (msg.message != WM_QUIT)
 	{
@@ -69,6 +73,17 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE, PWSTR, int)
 		{
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
+		}
+		else
+		{
+			timer.tick();
+
+			output = std::to_wstring(timer.deltaTime());
+			output += L" - ";
+			output += std::to_wstring(timer.totalTime());
+			output += L"\n";
+
+			OutputDebugString(output.c_str());
 		}
 	}
 }

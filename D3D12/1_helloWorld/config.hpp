@@ -22,6 +22,7 @@
 
 #include <cassert>
 #include <chrono>
+#include <cstdint>
 #include <exception>
 
 inline void throwIfFailed(HRESULT hr)

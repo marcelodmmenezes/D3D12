@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="config.hpp" />
     <ClInclude Include="d3d12.hpp" />
+    <ClInclude Include="timer.hpp" />
     <ClInclude Include="window.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
