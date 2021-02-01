@@ -239,7 +239,7 @@ LRESULT D3D12App::msgProc(
 
 	case WM_SIZE:
 		client_width = LOWORD(l_param);
-		client_height = HIWORD(w_param);
+		client_height = HIWORD(l_param);
 
 		if (device)
 		{

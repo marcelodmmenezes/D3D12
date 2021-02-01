@@ -7,5 +7,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="d3d12App.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
 </Project>

@@ -82,26 +82,26 @@ protected:
 
 	Microsoft::WRL::ComPtr<ID3D12Device8> device;
 	Microsoft::WRL::ComPtr<ID3D12Fence> fence;
-	UINT64 fence_value;
+	UINT64 fence_value = 0u;
 
 	Microsoft::WRL::ComPtr<ID3D12CommandQueue> command_queue;
 	Microsoft::WRL::ComPtr<ID3D12CommandAllocator> command_allocator;
 	Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList6> command_list;
 
 	static UINT const n_swap_chain_buffers = 2;
-	UINT current_swap_chain_buffer;
+	UINT current_swap_chain_buffer = 0u;
 	Microsoft::WRL::ComPtr<ID3D12Resource> swap_chain_buffers[n_swap_chain_buffers];
 	Microsoft::WRL::ComPtr<ID3D12Resource> depth_stencil_buffer;
 
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> rtv_heap;
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> dsv_heap;
 
-	D3D12_VIEWPORT viewport;
-	D3D12_RECT scissor;
+	D3D12_VIEWPORT viewport = {};
+	D3D12_RECT scissor = {};
 
-	UINT rtv_descriptor_size;
-	UINT dsv_descriptor_size;
-	UINT cbv_srv_uav_descriptor_size;
+	UINT rtv_descriptor_size = 0u;
+	UINT dsv_descriptor_size = 0u;
+	UINT cbv_srv_uav_descriptor_size = 0u;
 
 	std::wstring window_title = L"D3D12";
 	D3D_DRIVER_TYPE driver_type = D3D_DRIVER_TYPE_HARDWARE;
