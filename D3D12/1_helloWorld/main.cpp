@@ -63,6 +63,7 @@ private:
 			D3D12_RESOURCE_STATE_RENDER_TARGET,
 			D3D12_RESOURCE_STATE_PRESENT);
 
+		command_list->ResourceBarrier(1, &transition);
 		THROW_IF_FAILED(command_list->Close());
 
 		ID3D12CommandList* command_lists[]
